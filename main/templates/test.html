@@ -1,14 +1,44 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="{% static 'styles.css'%}">
+  <link rel="stylesheet" href="{% static 'checkbox.css'%}">
+
 </head>
 <body>
-  <h2>I love my family.. I miss them </h2>
-  {% for todo in todo_list %}
-    <h2> {{todo.text}}-- {{todo.created_at}}</h2>
-  {% endfor%}
+  <section>
+    <div class="createContainer">
+      <input class="creatInput" type="text" placeholder="Напишите сюда новую задачу">
+       <button class="creatBtn">Добавить</button>
+    </div>
+    <div class="toDoContainer">
+      {% for todo in todo_list %}
+       <div class="toDoItem">
+          <div class="toDoItemHeader">
+             <label class="checkBoxContainer">
+               <input type="checkbox" name="" id="">
+               <span class="checkMark"></span>
+             </label>
+             <h4>{{todo.text}}</h4>
+          </div>
+          <div class="toDoItemFooter">
+            <p>{{todo.created_at}}</p>
+            <div class="actionBtns">
+                <div class="rating">
+                     <input type="radio" name="rating" class="rating-5">
+                     <label for="rating-5"></label>
+                </div>
+             <img src="images/trash-alt-solid.svg" alt="">
+            </div>
+          </div>
+       </div>
+       {%endfor%}
+       </div>
+    </div>
+  </section>
 </body>
 </html>

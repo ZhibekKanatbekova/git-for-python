@@ -7,11 +7,11 @@
   <title>Book</title>
 </head>
 <body>
-{% for  book in book_list%}
-<h1>book.title</h1>
-<h2>book.subtitle</h2>
-<h2>book.genre</h2>
+{% for book in book_list %}
+<h1>{{book.title}}</h1>
+<h2>{{book.subtitle}}</h2>
+<h2>{{book.genre}}</h2>
 
-{%endfor%}
+ {%endfor%}
 </body>
 </html>

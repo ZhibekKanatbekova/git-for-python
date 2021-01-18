@@ -4,9 +4,7 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
-
     dependencies = [
     ]
 
@@ -19,6 +17,6 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateField(auto_now=True)),
                 ('is_closed', models.BooleanField(default=False)),
                 ('is_favourite', models.BooleanField(default=False)),
-            ],
+            ]
         ),
     ]

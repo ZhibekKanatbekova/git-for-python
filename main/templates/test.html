@@ -7,5 +7,8 @@
 </head>
 <body>
   <h2>I love my family.. I miss them </h2>
+  {% for todo in todo_list %}
+    <h2> {{todo.text}}-- {{todo.created_at}}</h2>
+  {% endfor%}
 </body>
 </html>

@@ -12,8 +12,12 @@
 <body>
   <section>
     <div class="createContainer">
-      <input class="creatInput" type="text" placeholder="Напишите сюда новую задачу">
-       <button class="creatBtn">Добавить</button>
+      <form action="{%url 'add-todo'%}" method="POST">
+         {% csrf_token%}
+          <input class="creatInput" type="text" placeholder="Напишите сюда новую задачу" name="todo_text">
+          <button class="creatBtn">Добавить</button>
+      </form>
+
     </div>
     <div class="toDoContainer">
       {% for todo in todo_list %}
@@ -32,7 +36,7 @@
                      <input type="radio" name="rating" class="rating-5">
                      <label for="rating-5"></label>
                 </div>
-             <img src="images/trash-alt-solid.svg" alt="">
+             <img src="{% static  'images/trash-alt-solid.svg'%}" alt="">
             </div>
           </div>
        </div>

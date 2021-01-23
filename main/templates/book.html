@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="{% static 'styles.css'%}">
 </head>
 <body>
+   <div class="createContainer">
+     <form action="{% url 'add-book'%}" method="POST">
+        {% csrf_token%}
+        <input class="creatInput" type="text" placeholder="Название любимой книги" name="todo_name">
+        <button class="creatBtn">Добавить</button>
+     </form>
+   </div>
    <div class="toDoContainer">
-  {% for book in book_list %}
-
-<div class="toDoItem">
-<h2>{{book.title}}</h2>
-<p>{{book.subtitle}}</p>
-<p>{{book.genre}}</p>
-<p>{{book.author}}</p>
-<p>{{book.year}}</p>
-<p>{{book.price}}</p>
-<p>{{book.description}}</p>
-</div>
-  {%endfor%}
-  </div>
+     {% for book in book_list %}
+     <div class="toDoItem">
+       <h2>{{book.title}}</h2>
+     </div>
+     {%endfor%}
+   </div>
 </body>
 </html>

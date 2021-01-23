@@ -18,3 +18,10 @@ def add_todo(request):
   todo= ToDo(text=text)
   todo.save()
   return redirect(test)
+
+def add_book(request):
+  form =request.POST
+  title=form["todo_name"]
+  nameBook= Book(title=title)
+  nameBook.save()
+  return redirect(book)

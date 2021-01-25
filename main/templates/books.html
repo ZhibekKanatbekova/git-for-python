@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book</title>
+  <link rel="stylesheet" href="{% static 'styles.css'%}">
+</head>
+<body>
+   <div class="createContainer">
+     <form action="{% url 'add-book'%}" method="POST">
+        {% csrf_token%}
+        <input class="creatInput" type="text" placeholder="Название любимой книги" name="title">
+        <input class="creatInput" type="text" placeholder="Подзаголовок книги" name="subtitle">
+        <input class="creatInput" type="text" placeholder="Описание книги" name="description">
+        <input class="creatInput" type="number" placeholder="Цена книги" name="price">
+        <input class="creatInput" type="text" placeholder="Жанр книги" name="genre">
+        <input class="creatInput" type="text" placeholder="Автор книги" name="author">
+        <input class="creatInput" type="datetime-local" placeholder="Год выпуска книги" name="year">
+        <button class="creatBtn">Добавить</button>
+     </form>
+   </div>
+   <div class="toDoContainer">
+     {% for book in books %}
+       <div class="toDoItem">
+          <h2>{{ book.title }}</h2>
+          <p>{{ book.subtitle }}</p>
+          <p>{{ book.genre }}</p>
+          <p>{{ book.author }}</p>
+          <p>{{ book.year }}</p>
+          <p>{{ book.price }}</p>
+          <p>{{ book.description }}</p>
+          <p>{{ book.published_at }}</p>
+       </div>
+     {% endfor %}
+   </div>
+</body>
+</html>

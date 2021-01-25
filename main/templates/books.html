@@ -34,12 +34,19 @@
              <div class="toDoItemFooter">
           <p>{{book.created_at}}</p>
           <div class="actionBtns">
-              <div class="rating">
-                <input type="radio" name="rating" class="rating-5">
-                <label for="rating-5"></label>
-               </div>
-             <img src="{% static  'images/trash-alt-solid.svg'%}" alt="">
-          </div>
+              {% if book.is_favourite %}
+                <a href="{% url 'mark-book' book.id %}">
+                  <img src="{% static  'images/star.png'%}" alt="">
+                </a>
+              {%else%}
+                <a href="{% url 'mark-book' book.id %}">
+                  <img src="{% static  'images/uncolor-star.png'%}" alt="">
+                </a>
+              {%endif%}
+                <a href="{% url 'delete-book' book.id %}">
+                    <img src="{% static  'images/trash-alt-solid.svg'%}" alt="">
+                </a>
+            </div>
         </div>
        </div>
      {% endfor %}

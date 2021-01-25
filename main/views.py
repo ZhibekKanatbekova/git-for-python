@@ -38,3 +38,20 @@ def delete_todo(request, id):
   todo=ToDo.objects.get(id=id)
   todo.delete()
   return redirect(test)
+
+def mark_todo(request, id):
+  todo=ToDo.objects.get(id=id)
+  todo.is_favourite=True
+  todo.save()
+  return redirect(test)
+
+def delete_book(request, id):
+  book=Book.objects.get(id=id)
+  book.delete()
+  return redirect(books)
+
+def mark_book(request, id):
+  book=Book.objects.get(id=id)
+  book.is_favourite=True
+  book.save()
+  return redirect(books)

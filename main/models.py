@@ -3,7 +3,7 @@ from datetime import datetime
 
 class ToDo(models.Model):
  text = models.CharField(max_length=100)
- created_at = models.DateField(auto_now_add=True)
+ created_at = models.DateTimeField(auto_now_add=True)
  is_closed = models.BooleanField(default=False)
  is_favourite = models.BooleanField(default=False)
 
@@ -16,3 +16,4 @@ class Book(models.Model):
   author = models.CharField(max_length=150,  default= "some string")
   year = models.DateField(default=datetime.now, blank=True)
   created_at = models.DateField(auto_now_add=True, null=True, blank=True)
+  is_favourite = models.BooleanField(default=False)

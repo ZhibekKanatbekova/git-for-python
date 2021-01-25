@@ -36,7 +36,9 @@
                      <input type="radio" name="rating" class="rating-5">
                      <label for="rating-5"></label>
                 </div>
-             <img src="{% static  'images/trash-alt-solid.svg'%}" alt="">
+                <a href="{% url 'delete-todo' todo.id %}">
+                    <img src="{% static  'images/trash-alt-solid.svg'%}" alt="">
+                </a>
             </div>
           </div>
        </div>

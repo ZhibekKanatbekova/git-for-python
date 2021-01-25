@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class ToDo(models.Model):
  text = models.CharField(max_length=100)
@@ -13,5 +14,5 @@ class Book(models.Model):
   price = models.IntegerField(default=170)
   genre = models.CharField(max_length=100,  default= "some string")
   author = models.CharField(max_length=150,  default= "some string")
-  year = models.DateField()
-  published_at = models.DateField(auto_now_add=True, default= 170)
+  year = models.DateField(default=datetime.now, blank=True)
+  created_at = models.DateField(auto_now_add=True, null=True, blank=True)

@@ -27,8 +27,14 @@ def add_book(request):
     description=form["description"],
     price= form["price"],
     genre=form["genre"],
-    author=form("author"),
+    author=form["author"],
     year=form["year"][:10],
   )
   book.save()
   return redirect(books)
+
+
+def delete_todo(request, id):
+  todo=ToDo.objects.get(id=id)
+  todo.delete()
+  return redirect(test)

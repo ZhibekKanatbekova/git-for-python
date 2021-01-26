@@ -23,7 +23,11 @@
    </div>
    <div class="toDoContainer">
      {% for book in books %}
-       <div class="toDoItem">
+       <div class="toDoItem
+        {% if book.is_favourite %}
+             marked
+          {% endif%}
+       ">
           <h2>{{ book.title }}</h2>
           <p>{{ book.subtitle }}</p>
           <p>{{ book.genre }}</p>

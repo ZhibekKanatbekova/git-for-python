@@ -24,14 +24,20 @@
        <div class="toDoItem
           {% if todo.is_favourite %}
              marked
+          {%elif todo.is_closed%}
+             done
           {% endif%}
        ">
           <div class="toDoItemHeader">
              <label class="checkBoxContainer">
-               <input type="checkbox" name="" id="">
+               <input type="checkbox" name="" id=""
+                   {% if todo.is_closed%}
+                    checked
+                   {%endif%}
+               />
                <span class="checkMark"></span>
              </label>
-             <h4>{{todo.text}}</h4>
+             <h4><a href="{% url 'close-todo' todo.id %}"> {{todo.text}} </a></h4>
           </div>
           <div class="toDoItemFooter">
             <p>{{todo.created_at}}</p>

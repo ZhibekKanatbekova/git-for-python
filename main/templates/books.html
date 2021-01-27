@@ -26,9 +26,23 @@
        <div class="toDoItem
         {% if book.is_favourite %}
              marked
+          {%elif book.is_closed%}
+             done
           {% endif%}
        ">
-          <h2>{{ book.title }}</h2>
+          <div class="toDoItemHeader">
+             <label class="checkBoxContainer">
+               <input type="checkbox" name="" id=""
+                   {% if book.is_closed%}
+                    checked
+                   {%endif%}
+               />
+               <span class="checkMark"></span>
+             </label>
+          </div>
+          <a href="{% url 'close-book' book.id %}">
+            <h2>{{ book.title }}</h2>
+          </a>
           <p>{{ book.subtitle }}</p>
           <p>{{ book.genre }}</p>
           <p>{{ book.author }}</p>

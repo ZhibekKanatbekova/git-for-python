@@ -17,3 +17,4 @@ class Book(models.Model):
   year = models.DateField(default=datetime.now, blank=True)
   created_at = models.DateField(auto_now_add=True, null=True, blank=True)
   is_favourite = models.BooleanField(default=False)
+  is_closed = models.BooleanField(default=False)

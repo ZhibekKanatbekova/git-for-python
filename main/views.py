@@ -52,7 +52,7 @@ def delete_book(request, id):
 
 def mark_book(request, id):
   book=Book.objects.get(id=id)
-  book.is_favourite=True
+  book.is_favourite=not book.is_favourite
   book.save()
   return redirect(books)
 
@@ -61,3 +61,9 @@ def close_todo(request, id):
   todo.is_closed=not todo.is_closed
   todo.save()
   return redirect(test)
+
+def close_book(request, id):
+  book=Book.objects.get(id=id)
+  book.is_closed=not book.is_closed
+  book.save()
+  return redirect(books)
